@@ -31,7 +31,56 @@ class Game {
         gameOverlay.style.display = "none";
 
         this.activePhrase = this.getRandomPhrase();
-        this.activePhrase.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+        this.activePhraseLetters = document.querySelectorAll('#phrase ul li');
+    }
+
+    handleInteraction() {
+        const keyboardKeys = document.getElementsByClassName("key");
+    
+        for (let i = 0; i < keyboardKeys.length; i++) {
+            const key = keyboardKeys[i];
+            key.addEventListener("click", (event) => {
+                const clickedKey = event.target.textContent.toLowerCase();
+                const phraseLetters = this.activePhrase.phrase.toLowerCase(); 
+                // THIS DOES NOT WORK
+                if (phraseLetters.includes(clickedKey)) {
+                    clickedKey.classList.add("chosen");
+                    this.showMatchedLetter();
+                    this.checkForWin();
+                } else {
+                    clickedKey.classList.add("wrong");
+                    this.removeLife();
+                }
+            });
+        }
+    }
+
+    checkForWin() {
+
+        const phraseLetters = document.querySelectorAll('#phrase li');
+        let completedPhrase =  true;
+
+        phraseLetters.forEach(letter => { 
+            if (!letter.classList.contains("chosen")) {
+                completedPhrase = false;
+                return;
+            }
+        });
+
+        if (completedPhrase) {
+            console.log("You win!");
+        } else {
+            console.log("Better luck next time.");
+        }
+    }
+
+    removeLife() {
+
+    }
+
+    gameOver() {
+
     }
 
 }

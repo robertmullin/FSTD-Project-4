@@ -34,7 +34,7 @@ class Phrase {
         const matchedLetters = document.getElementsByClassName(letter);
         for (let i = 0; i < matchedLetters.length; i++) {
             matchedLetters[i].classList.remove("hide");
-            matchedLetters[i].classList.add('show');
+            matchedLetters[i].classList.add("show");
         }
     }
 }
