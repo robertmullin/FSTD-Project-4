@@ -90,7 +90,7 @@ class Game {
             this.resetGame();
         });
     }
-
+    // reset the game after winning or losing 
     resetGame() {
         this.missed = 0;
         const keyboardKeys = document.querySelectorAll('.key');
