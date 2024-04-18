@@ -99,6 +99,12 @@ class Game {
         });
         const phraseList = document.querySelector('#phrase ul');
         phraseList.innerHTML = ''; 
+
+        const lifePoints = document.querySelectorAll(".tries img");
+        lifePoints.forEach((img, index) => {
+            img.src = "images/liveHeart.png";
+        });
+
         this.startGame(); 
     }
 
