@@ -28,7 +28,7 @@ class Phrase {
     checkLetter(letter) {
         const phraseArray = this.phrase.split("");
         return phraseArray.includes(letter); 
-      }
+    }
     // reveal the letters on the board that matches the player's selections
     showMatchedLetter(letter) {
         const matchedLetters = document.getElementsByClassName(letter);
@@ -38,3 +38,4 @@ class Phrase {
         }
     }
 }
+// END PHRASE CLASS
